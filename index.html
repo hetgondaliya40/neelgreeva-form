@@ -119,15 +119,29 @@ input:focus{
 .check-opt{
   border:1.5px solid #d1d5db;
   border-radius:12px;
-  padding:12px;
+  padding:14px;
   cursor:pointer;
   transition:0.2s;
+  user-select:none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.radio-opt:hover,
+.check-opt:hover{
+  border-color:#1a4a2e;
 }
 
 .radio-opt.sel,
 .check-opt.sel{
   background:#edf7ef;
   border-color:#1a4a2e;
+  color:#1a4a2e;
+  font-weight:600;
+}
+
+.radio-opt:active,
+.check-opt:active{
+  transform:scale(0.98);
 }
 
 .divider{
@@ -272,17 +286,9 @@ Health Profile
 
 <div class="radio-group" id="g-gender">
 
-<div class="radio-opt" onclick="pick(this,'g-gender')">
-Male
-</div>
-
-<div class="radio-opt" onclick="pick(this,'g-gender')">
-Female
-</div>
-
-<div class="radio-opt" onclick="pick(this,'g-gender')">
-Other
-</div>
+<div class="radio-opt">Male</div>
+<div class="radio-opt">Female</div>
+<div class="radio-opt">Other</div>
 
 </div>
 
@@ -296,21 +302,10 @@ Since how many years do you have diabetes?
 
 <div class="radio-group" id="g-years">
 
-<div class="radio-opt" onclick="pick(this,'g-years')">
-Less than 1 year
-</div>
-
-<div class="radio-opt" onclick="pick(this,'g-years')">
-1–3 years
-</div>
-
-<div class="radio-opt" onclick="pick(this,'g-years')">
-3–5 years
-</div>
-
-<div class="radio-opt" onclick="pick(this,'g-years')">
-More than 5 years
-</div>
+<div class="radio-opt">Less than 1 year</div>
+<div class="radio-opt">1–3 years</div>
+<div class="radio-opt">3–5 years</div>
+<div class="radio-opt">More than 5 years</div>
 
 </div>
 
@@ -356,13 +351,8 @@ Are you taking medicines currently?
 
 <div class="radio-group" id="g-meds">
 
-<div class="radio-opt" onclick="pick(this,'g-meds')">
-Yes
-</div>
-
-<div class="radio-opt" onclick="pick(this,'g-meds')">
-No
-</div>
+<div class="radio-opt">Yes</div>
+<div class="radio-opt">No</div>
 
 </div>
 
@@ -382,29 +372,12 @@ Problems Facing
 
 <div class="check-group" id="g-problems">
 
-<div class="check-opt" onclick="toggle(this)">
-High Sugar
-</div>
-
-<div class="check-opt" onclick="toggle(this)">
-Weakness
-</div>
-
-<div class="check-opt" onclick="toggle(this)">
-Frequent Urination
-</div>
-
-<div class="check-opt" onclick="toggle(this)">
-Weight Loss
-</div>
-
-<div class="check-opt" onclick="toggle(this)">
-Fatigue
-</div>
-
-<div class="check-opt" onclick="toggle(this)">
-Stress
-</div>
+<div class="check-opt">High Sugar</div>
+<div class="check-opt">Weakness</div>
+<div class="check-opt">Frequent Urination</div>
+<div class="check-opt">Weight Loss</div>
+<div class="check-opt">Fatigue</div>
+<div class="check-opt">Stress</div>
 
 </div>
 
@@ -418,13 +391,8 @@ Preferred Contact
 
 <div class="radio-group" id="g-contact">
 
-<div class="radio-opt" onclick="pick(this,'g-contact')">
-WhatsApp
-</div>
-
-<div class="radio-opt" onclick="pick(this,'g-contact')">
-Call
-</div>
+<div class="radio-opt">WhatsApp</div>
+<div class="radio-opt">Call</div>
 
 </div>
 
@@ -460,37 +428,46 @@ Chat on WhatsApp
 
 <script>
 
-/* ===========================
-CHANGE THESE
-=========================== */
-
 var WA_PHONE = '8511607177';
 
-/* PASTE YOUR GOOGLE SCRIPT URL HERE */
 var SHEET_API =
 'https://docs.google.com/spreadsheets/d/1NVY4hlK4pTPlnq4Eh8S3AAZRzeqBgt34UNRgYGsNzwg/edit?usp=sharing
 
 this is google sheet link and get full code ';
 
-/* =========================== */
+/* RADIO BUTTON FIX */
 
-function pick(el, groupId){
+document.querySelectorAll('.radio-opt').forEach(function(el){
 
-  document.querySelectorAll(
-    '#' + groupId + ' .radio-opt'
-  ).forEach(function(item){
+  el.addEventListener('click', function(){
 
-    item.classList.remove('sel');
+    var group = el.parentElement.id;
+
+    document.querySelectorAll(
+      '#' + group + ' .radio-opt'
+    ).forEach(function(item){
+
+      item.classList.remove('sel');
+
+    });
+
+    el.classList.add('sel');
 
   });
 
-  el.classList.add('sel');
-}
+});
 
-function toggle(el){
+/* CHECKBOX FIX */
 
-  el.classList.toggle('sel');
-}
+document.querySelectorAll('.check-opt').forEach(function(el){
+
+  el.addEventListener('click', function(){
+
+    el.classList.toggle('sel');
+
+  });
+
+});
 
 function getRadio(groupId){
 
@@ -575,13 +552,13 @@ function submitForm(){
   var contact =
     getRadio('g-contact');
 
-  /* ===========================
-  SAVE TO GOOGLE SHEET
-  =========================== */
-
   fetch(SHEET_API,{
 
     method:'POST',
+
+    headers:{
+      'Content-Type':'application/json'
+    },
 
     body:JSON.stringify({
 
@@ -600,32 +577,15 @@ function submitForm(){
 
     })
 
-  })
-
-  .then(res => res.json())
-
-  .then(data => {
-
-    console.log('Saved');
-
   });
-
-  /* ===========================
-  WHATSAPP MESSAGE
-  =========================== */
 
   var lines = [];
 
   lines.push('🌿 Neelgreeva Ayurveda Form');
-
   lines.push('');
-
   lines.push('👤 Name: ' + name);
-
   lines.push('📱 Mobile: ' + mobile);
-
   lines.push('💬 WhatsApp: ' + whatsapp);
-
   lines.push('🏙️ City: ' + city);
 
   if(age)
@@ -638,36 +598,21 @@ function submitForm(){
   lines.push('📅 Diabetes Since: ' + years);
 
   if(fasting)
-  lines.push(
-    '🩸 Fasting Sugar: ' +
-    fasting +
-    ' mg/dL'
-  );
+  lines.push('🩸 Fasting Sugar: ' + fasting);
 
   if(pp)
-  lines.push(
-    '🩸 PP Sugar: ' +
-    pp +
-    ' mg/dL'
-  );
+  lines.push('🩸 PP Sugar: ' + pp);
 
   if(meds)
-  lines.push(
-    '💊 Medicines: ' + meds
-  );
+  lines.push('💊 Medicines: ' + meds);
 
   if(problems)
-  lines.push(
-    '⚠ Problems: ' + problems
-  );
+  lines.push('⚠ Problems: ' + problems);
 
   if(contact)
-  lines.push(
-    '📞 Preferred Contact: ' + contact
-  );
+  lines.push('📞 Preferred Contact: ' + contact);
 
   lines.push('');
-
   lines.push(
     'Please guide me for diabetes control through Ayurveda 🙏'
   );
