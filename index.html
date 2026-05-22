@@ -1,94 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>Neelgreeva Ayurveda – Diabetes Control Program</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 
 <style>
 
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
+  box-sizing:border-box;
 }
 
 body{
   font-family:'Inter',sans-serif;
   background:#f5f0e8;
   min-height:100vh;
-  padding:2rem 1rem;
+  padding:20px;
   display:flex;
   justify-content:center;
 }
 
 .outer{
   width:100%;
-  max-width:480px;
+  max-width:520px;
 }
 
 .header{
   background:#1a4a2e;
-  border-radius:18px 18px 0 0;
-  padding:2rem;
+  border-radius:22px 22px 0 0;
+  padding:32px 24px;
   text-align:center;
 }
 
 .brand{
-  font-size:11px;
+  color:#b7dfbf;
+  font-size:12px;
   letter-spacing:2px;
-  color:#a8d5b0;
   text-transform:uppercase;
   margin-bottom:8px;
 }
 
 .title{
-  font-family:'Playfair Display',serif;
-  font-size:24px;
   color:white;
-  margin-bottom:8px;
+  font-size:28px;
+  font-family:'Playfair Display',serif;
+  margin-bottom:10px;
 }
 
 .subtitle{
-  font-size:14px;
   color:#dcefdc;
+  font-size:14px;
+  line-height:1.7;
 }
 
 .form-wrap{
   background:white;
-  padding:1.6rem;
-  border-radius:0 0 18px 18px;
+  padding:24px;
+  border-radius:0 0 22px 22px;
 }
 
-.step{
-  font-size:11px;
-  color:#6b7280;
-  margin-bottom:1rem;
+.section-title{
+  font-size:12px;
   text-transform:uppercase;
+  color:#6b7280;
   letter-spacing:1px;
+  margin-bottom:18px;
+  font-weight:600;
 }
 
 .field{
-  margin-bottom:1.1rem;
+  margin-bottom:18px;
 }
 
 .field label{
   display:block;
-  font-size:13px;
-  margin-bottom:6px;
-  color:#374151;
+  margin-bottom:7px;
+  font-size:14px;
   font-weight:500;
+  color:#374151;
+}
+
+.req{
+  color:red;
 }
 
 input{
   width:100%;
-  padding:12px;
-  border-radius:10px;
+  padding:13px;
   border:1.5px solid #d1d5db;
-  font-size:15px;
+  border-radius:12px;
   outline:none;
+  font-size:15px;
+  font-family:'Inter',sans-serif;
 }
 
 input:focus{
@@ -97,57 +105,47 @@ input:focus{
 
 .row{
   display:flex;
-  gap:10px;
+  gap:12px;
 }
 
-.radio-group{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.radio-opt{
-  border:1.5px solid #d1d5db;
-  padding:11px 12px;
-  border-radius:10px;
-  cursor:pointer;
-  transition:0.2s;
-}
-
-.radio-opt.sel{
-  background:#edf7ef;
-  border-color:#1a4a2e;
-}
-
+.radio-group,
 .check-group{
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:10px;
 }
 
+.radio-opt,
 .check-opt{
   border:1.5px solid #d1d5db;
-  padding:11px 12px;
-  border-radius:10px;
+  border-radius:12px;
+  padding:12px;
   cursor:pointer;
   transition:0.2s;
 }
 
+.radio-opt.sel,
 .check-opt.sel{
   background:#edf7ef;
   border-color:#1a4a2e;
 }
 
+.divider{
+  margin:25px 0;
+  border-top:1px solid #e5e7eb;
+}
+
 .submit-btn{
   width:100%;
+  border:none;
   background:#1a4a2e;
   color:white;
-  border:none;
-  padding:15px;
-  border-radius:12px;
+  padding:16px;
+  border-radius:14px;
   font-size:16px;
   cursor:pointer;
-  margin-top:1rem;
+  margin-top:10px;
+  font-weight:600;
 }
 
 .submit-btn:hover{
@@ -155,35 +153,36 @@ input:focus{
 }
 
 .footer-note{
+  margin-top:16px;
   text-align:center;
-  font-size:12px;
   color:#6b7280;
-  margin-top:1rem;
-  line-height:1.6;
+  font-size:12px;
+  line-height:1.7;
 }
 
 .success{
   display:none;
   background:white;
-  padding:2rem;
-  border-radius:0 0 18px 18px;
+  padding:30px;
+  border-radius:0 0 22px 22px;
   text-align:center;
 }
 
 .success h2{
   color:#1a4a2e;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
 .wa-btn{
   background:#25D366;
   color:white;
   border:none;
-  padding:14px 24px;
-  border-radius:10px;
+  padding:15px 24px;
+  border-radius:12px;
+  margin-top:20px;
   cursor:pointer;
-  margin-top:1rem;
   font-size:15px;
+  font-weight:600;
 }
 
 @media(max-width:500px){
@@ -202,178 +201,237 @@ input:focus{
 <div class="outer">
 
 <div class="header">
-  <div class="brand">Neelgreeva Ayurveda</div>
-  <div class="title">Diabetes Control Program 🌿</div>
-  <div class="subtitle">
-    Control Diabetes Naturally with Ayurveda
-  </div>
+
+<div class="brand">
+Neelgreeva Ayurveda
+</div>
+
+<div class="title">
+Diabetes Control Program 🌿
+</div>
+
+<div class="subtitle">
+Control Diabetes Naturally with Ayurveda
+</div>
+
 </div>
 
 <div class="form-wrap" id="formWrap">
 
-<div class="step">Personal Details</div>
-
-<div class="field">
-  <label>Full Name *</label>
-  <input type="text" id="f-name" placeholder="Enter full name">
+<div class="section-title">
+Personal Details
 </div>
 
 <div class="field">
-  <label>Mobile Number *</label>
-  <input type="tel" id="f-mobile" placeholder="+91 9876543210">
+<label>
+Full Name <span class="req">*</span>
+</label>
+
+<input type="text" id="f-name" placeholder="Enter full name">
 </div>
 
 <div class="field">
-  <label>WhatsApp Number *</label>
-  <input type="tel" id="f-whatsapp" placeholder="+91 9876543210">
+<label>
+Mobile Number <span class="req">*</span>
+</label>
+
+<input type="tel" id="f-mobile" placeholder="+91 9876543210">
 </div>
 
 <div class="field">
-  <label>City / State *</label>
-  <input type="text" id="f-city" placeholder="Ahmedabad, Gujarat">
-</div>
+<label>
+WhatsApp Number <span class="req">*</span>
+</label>
 
-<hr style="margin:1.5rem 0; border:none; border-top:1px solid #e5e7eb;">
-
-<div class="step">Health Profile</div>
-
-<div class="field">
-  <label>Age</label>
-  <input type="number" id="f-age" placeholder="45">
+<input type="tel" id="f-whatsapp" placeholder="+91 9876543210">
 </div>
 
 <div class="field">
-  <label>Gender</label>
+<label>
+City / State <span class="req">*</span>
+</label>
 
-  <div class="radio-group" id="g-gender">
+<input type="text" id="f-city" placeholder="Ahmedabad, Gujarat">
+</div>
 
-    <div class="radio-opt" onclick="pick(this,'g-gender')">
-      Male
-    </div>
+<div class="divider"></div>
 
-    <div class="radio-opt" onclick="pick(this,'g-gender')">
-      Female
-    </div>
-
-    <div class="radio-opt" onclick="pick(this,'g-gender')">
-      Other
-    </div>
-
-  </div>
+<div class="section-title">
+Health Profile
 </div>
 
 <div class="field">
-  <label>Since how many years do you have diabetes?</label>
+<label>Age</label>
 
-  <div class="radio-group" id="g-years">
-
-    <div class="radio-opt" onclick="pick(this,'g-years')">
-      Less than 1 year
-    </div>
-
-    <div class="radio-opt" onclick="pick(this,'g-years')">
-      1–3 years
-    </div>
-
-    <div class="radio-opt" onclick="pick(this,'g-years')">
-      3–5 years
-    </div>
-
-    <div class="radio-opt" onclick="pick(this,'g-years')">
-      More than 5 years
-    </div>
-
-  </div>
+<input type="number" id="f-age" placeholder="45">
 </div>
 
 <div class="field">
 
-<label>Current Sugar Level</label>
+<label>Gender</label>
+
+<div class="radio-group" id="g-gender">
+
+<div class="radio-opt" onclick="pick(this,'g-gender')">
+Male
+</div>
+
+<div class="radio-opt" onclick="pick(this,'g-gender')">
+Female
+</div>
+
+<div class="radio-opt" onclick="pick(this,'g-gender')">
+Other
+</div>
+
+</div>
+
+</div>
+
+<div class="field">
+
+<label>
+Since how many years do you have diabetes?
+</label>
+
+<div class="radio-group" id="g-years">
+
+<div class="radio-opt" onclick="pick(this,'g-years')">
+Less than 1 year
+</div>
+
+<div class="radio-opt" onclick="pick(this,'g-years')">
+1–3 years
+</div>
+
+<div class="radio-opt" onclick="pick(this,'g-years')">
+3–5 years
+</div>
+
+<div class="radio-opt" onclick="pick(this,'g-years')">
+More than 5 years
+</div>
+
+</div>
+
+</div>
+
+<div class="field">
+
+<label>
+Current Sugar Level
+</label>
 
 <div class="row">
 
-  <div style="flex:1;">
-    <label style="font-size:12px;">Fasting Sugar</label>
-    <input type="number" id="f-fasting" placeholder="160">
-  </div>
+<div style="flex:1">
 
-  <div style="flex:1;">
-    <label style="font-size:12px;">PP Sugar</label>
-    <input type="number" id="f-pp" placeholder="220">
-  </div>
+<label style="font-size:12px;">
+Fasting Sugar
+</label>
+
+<input type="number" id="f-fasting" placeholder="160">
+
+</div>
+
+<div style="flex:1">
+
+<label style="font-size:12px;">
+PP Sugar
+</label>
+
+<input type="number" id="f-pp" placeholder="220">
+
+</div>
 
 </div>
 
 </div>
 
 <div class="field">
-  <label>Are you taking medicines currently?</label>
 
-  <div class="radio-group" id="g-meds">
+<label>
+Are you taking medicines currently?
+</label>
 
-    <div class="radio-opt" onclick="pick(this,'g-meds')">
-      Yes
-    </div>
+<div class="radio-group" id="g-meds">
 
-    <div class="radio-opt" onclick="pick(this,'g-meds')">
-      No
-    </div>
-
-  </div>
+<div class="radio-opt" onclick="pick(this,'g-meds')">
+Yes
 </div>
 
-<hr style="margin:1.5rem 0; border:none; border-top:1px solid #e5e7eb;">
+<div class="radio-opt" onclick="pick(this,'g-meds')">
+No
+</div>
 
-<div class="step">Symptoms & Contact</div>
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="section-title">
+Symptoms & Contact
+</div>
 
 <div class="field">
-<label>Problems Facing</label>
+
+<label>
+Problems Facing
+</label>
 
 <div class="check-group" id="g-problems">
 
-  <div class="check-opt" onclick="toggle(this)">
-    High Sugar
-  </div>
+<div class="check-opt" onclick="toggle(this)">
+High Sugar
+</div>
 
-  <div class="check-opt" onclick="toggle(this)">
-    Weakness
-  </div>
+<div class="check-opt" onclick="toggle(this)">
+Weakness
+</div>
 
-  <div class="check-opt" onclick="toggle(this)">
-    Frequent Urination
-  </div>
+<div class="check-opt" onclick="toggle(this)">
+Frequent Urination
+</div>
 
-  <div class="check-opt" onclick="toggle(this)">
-    Fatigue
-  </div>
+<div class="check-opt" onclick="toggle(this)">
+Weight Loss
+</div>
 
-  <div class="check-opt" onclick="toggle(this)">
-    Stress
-  </div>
+<div class="check-opt" onclick="toggle(this)">
+Fatigue
+</div>
+
+<div class="check-opt" onclick="toggle(this)">
+Stress
+</div>
 
 </div>
+
 </div>
 
 <div class="field">
 
-<label>Preferred Contact</label>
+<label>
+Preferred Contact
+</label>
 
 <div class="radio-group" id="g-contact">
 
-  <div class="radio-opt" onclick="pick(this,'g-contact')">
-    WhatsApp
-  </div>
+<div class="radio-opt" onclick="pick(this,'g-contact')">
+WhatsApp
+</div>
 
-  <div class="radio-opt" onclick="pick(this,'g-contact')">
-    Call
-  </div>
+<div class="radio-opt" onclick="pick(this,'g-contact')">
+Call
+</div>
 
 </div>
 
 </div>
 
 <button class="submit-btn" onclick="submitForm()">
-  Get FREE Consultation
+Get FREE Consultation
 </button>
 
 <p class="footer-note">
@@ -385,7 +443,7 @@ input:focus{
 <div class="success" id="successBox">
 
 <h2 id="successTitle">
-  Thank You 🌿
+Thank You 🌿
 </h2>
 
 <p>
@@ -393,7 +451,7 @@ Our Ayurveda expert will contact you shortly on WhatsApp.
 </p>
 
 <button class="wa-btn" id="waBtn">
-  Chat on WhatsApp
+Chat on WhatsApp
 </button>
 
 </div>
@@ -402,26 +460,43 @@ Our Ayurveda expert will contact you shortly on WhatsApp.
 
 <script>
 
-/* CHANGE THIS NUMBER */
+/* ===========================
+CHANGE THESE
+=========================== */
+
 var WA_PHONE = '8511607177';
+
+/* PASTE YOUR GOOGLE SCRIPT URL HERE */
+var SHEET_API =
+'https://docs.google.com/spreadsheets/d/1NVY4hlK4pTPlnq4Eh8S3AAZRzeqBgt34UNRgYGsNzwg/edit?usp=sharing
+
+this is google sheet link and get full code ';
+
+/* =========================== */
 
 function pick(el, groupId){
 
-  document.querySelectorAll('#'+groupId+' .radio-opt')
-  .forEach(function(item){
+  document.querySelectorAll(
+    '#' + groupId + ' .radio-opt'
+  ).forEach(function(item){
+
     item.classList.remove('sel');
+
   });
 
   el.classList.add('sel');
 }
 
 function toggle(el){
+
   el.classList.toggle('sel');
 }
 
 function getRadio(groupId){
 
-  var sel = document.querySelector('#'+groupId+' .radio-opt.sel');
+  var sel = document.querySelector(
+    '#' + groupId + ' .radio-opt.sel'
+  );
 
   return sel ? sel.textContent.trim() : '';
 }
@@ -429,7 +504,11 @@ function getRadio(groupId){
 function getChecks(groupId){
 
   return Array.from(
-    document.querySelectorAll('#'+groupId+' .check-opt.sel')
+
+    document.querySelectorAll(
+      '#' + groupId + ' .check-opt.sel'
+    )
+
   ).map(function(e){
 
     return e.textContent.trim();
@@ -439,33 +518,101 @@ function getChecks(groupId){
 
 function submitForm(){
 
-  var name = document.getElementById('f-name').value.trim();
-  var mobile = document.getElementById('f-mobile').value.trim();
-  var whatsapp = document.getElementById('f-whatsapp').value.trim();
-  var city = document.getElementById('f-city').value.trim();
+  var name =
+    document.getElementById('f-name')
+    .value.trim();
 
-  if(!name || !mobile || !whatsapp || !city){
+  var mobile =
+    document.getElementById('f-mobile')
+    .value.trim();
 
-    alert('Please fill all required fields.');
+  var whatsapp =
+    document.getElementById('f-whatsapp')
+    .value.trim();
+
+  var city =
+    document.getElementById('f-city')
+    .value.trim();
+
+  if(
+    !name ||
+    !mobile ||
+    !whatsapp ||
+    !city
+  ){
+
+    alert(
+      'Please fill all required fields.'
+    );
 
     return;
   }
 
-  var age = document.getElementById('f-age').value.trim();
+  var age =
+    document.getElementById('f-age')
+    .value.trim();
 
-  var fasting = document.getElementById('f-fasting').value.trim();
+  var fasting =
+    document.getElementById('f-fasting')
+    .value.trim();
 
-  var pp = document.getElementById('f-pp').value.trim();
+  var pp =
+    document.getElementById('f-pp')
+    .value.trim();
 
-  var gender = getRadio('g-gender');
+  var gender =
+    getRadio('g-gender');
 
-  var years = getRadio('g-years');
+  var years =
+    getRadio('g-years');
 
-  var meds = getRadio('g-meds');
+  var meds =
+    getRadio('g-meds');
 
-  var problems = getChecks('g-problems');
+  var problems =
+    getChecks('g-problems');
 
-  var contact = getRadio('g-contact');
+  var contact =
+    getRadio('g-contact');
+
+  /* ===========================
+  SAVE TO GOOGLE SHEET
+  =========================== */
+
+  fetch(SHEET_API,{
+
+    method:'POST',
+
+    body:JSON.stringify({
+
+      name:name,
+      mobile:mobile,
+      whatsapp:whatsapp,
+      city:city,
+      age:age,
+      gender:gender,
+      years:years,
+      fasting:fasting,
+      pp:pp,
+      meds:meds,
+      problems:problems,
+      contact:contact
+
+    })
+
+  })
+
+  .then(res => res.json())
+
+  .then(data => {
+
+    console.log('Saved');
+
+  });
+
+  /* ===========================
+  WHATSAPP MESSAGE
+  =========================== */
 
   var lines = [];
 
@@ -482,33 +629,53 @@ function submitForm(){
   lines.push('🏙️ City: ' + city);
 
   if(age)
-    lines.push('🎂 Age: ' + age);
+  lines.push('🎂 Age: ' + age);
 
   if(gender)
-    lines.push('⚧ Gender: ' + gender);
+  lines.push('⚧ Gender: ' + gender);
 
   if(years)
-    lines.push('📅 Diabetes Since: ' + years);
+  lines.push('📅 Diabetes Since: ' + years);
 
   if(fasting)
-    lines.push('🩸 Fasting Sugar: ' + fasting + ' mg/dL');
+  lines.push(
+    '🩸 Fasting Sugar: ' +
+    fasting +
+    ' mg/dL'
+  );
 
   if(pp)
-    lines.push('🩸 PP Sugar: ' + pp + ' mg/dL');
+  lines.push(
+    '🩸 PP Sugar: ' +
+    pp +
+    ' mg/dL'
+  );
 
   if(meds)
-    lines.push('💊 Medicines: ' + meds);
+  lines.push(
+    '💊 Medicines: ' + meds
+  );
 
   if(problems)
-    lines.push('⚠ Problems: ' + problems);
+  lines.push(
+    '⚠ Problems: ' + problems
+  );
 
   if(contact)
-    lines.push('📞 Preferred Contact: ' + contact);
+  lines.push(
+    '📞 Preferred Contact: ' + contact
+  );
 
   lines.push('');
-  lines.push('Please guide me for diabetes control through Ayurveda 🙏');
 
-  var msg = encodeURIComponent(lines.join('\n'));
+  lines.push(
+    'Please guide me for diabetes control through Ayurveda 🙏'
+  );
+
+  var msg =
+    encodeURIComponent(
+      lines.join('\n')
+    );
 
   var waUrl =
     'https://wa.me/' +
@@ -516,22 +683,38 @@ function submitForm(){
     '?text=' +
     msg;
 
-  document.getElementById('formWrap').style.display='none';
+  document.getElementById(
+    'formWrap'
+  ).style.display = 'none';
 
-  document.getElementById('successBox').style.display='block';
+  document.getElementById(
+    'successBox'
+  ).style.display = 'block';
 
-  document.getElementById('successTitle').innerHTML =
-    'Thank You, ' + name + ' 🌿';
+  document.getElementById(
+    'successTitle'
+  ).innerHTML =
+    'Thank You, ' +
+    name +
+    ' 🌿';
 
-  document.getElementById('waBtn').onclick = function(){
+  document.getElementById(
+    'waBtn'
+  ).onclick = function(){
 
-    window.open(waUrl,'_blank');
+    window.open(
+      waUrl,
+      '_blank'
+    );
 
   };
 
   setTimeout(function(){
 
-    window.open(waUrl,'_blank');
+    window.open(
+      waUrl,
+      '_blank'
+    );
 
   },1000);
 
