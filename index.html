@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Neelgreeva Ayurveda – Diabetes Control Program</title>
+<title>Neelgreeva Ayurveda – Premium Consultation Form</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,158 +17,203 @@
 }
 
 body{
-  font-family:'Inter',sans-serif;
-  background:#f5f0e8;
+  font-family:'Poppins',sans-serif;
+  background:#f3f6f2;
   min-height:100vh;
   padding:20px;
   display:flex;
   justify-content:center;
 }
 
-.outer{
+.container{
   width:100%;
-  max-width:520px;
+  max-width:560px;
+}
+
+.card{
+  background:white;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 10px 40px rgba(0,0,0,0.08);
 }
 
 .header{
-  background:#1a4a2e;
-  border-radius:22px 22px 0 0;
-  padding:32px 24px;
+  background:linear-gradient(135deg,#1a4a2e,#2f7a4d);
+  padding:40px 24px;
   text-align:center;
 }
 
+.logo{
+  width:72px;
+  height:72px;
+  background:rgba(255,255,255,0.12);
+  border-radius:50%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  margin-bottom:18px;
+  backdrop-filter:blur(8px);
+}
+
 .brand{
-  color:#b7dfbf;
-  font-size:12px;
+  color:#d8f5df;
   letter-spacing:2px;
+  font-size:12px;
   text-transform:uppercase;
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
 
 .title{
   color:white;
-  font-size:28px;
-  font-family:'Playfair Display',serif;
-  margin-bottom:10px;
+  font-size:30px;
+  font-weight:700;
+  line-height:1.3;
 }
 
 .subtitle{
-  color:#dcefdc;
+  color:#d7eadb;
+  margin-top:12px;
   font-size:14px;
-  line-height:1.7;
+  line-height:1.8;
 }
 
-.form-wrap{
-  background:white;
-  padding:24px;
-  border-radius:0 0 22px 22px;
+.form{
+  padding:28px;
+}
+
+.section{
+  margin-bottom:28px;
 }
 
 .section-title{
-  font-size:12px;
-  text-transform:uppercase;
+  font-size:13px;
+  font-weight:700;
   color:#6b7280;
+  text-transform:uppercase;
   letter-spacing:1px;
   margin-bottom:18px;
-  font-weight:600;
 }
 
 .field{
   margin-bottom:18px;
 }
 
-.field label{
+label{
   display:block;
-  margin-bottom:7px;
+  margin-bottom:8px;
   font-size:14px;
-  font-weight:500;
+  font-weight:600;
   color:#374151;
 }
 
 .req{
-  color:red;
+  color:#ef4444;
 }
 
 input{
   width:100%;
-  padding:13px;
+  padding:15px;
   border:1.5px solid #d1d5db;
-  border-radius:12px;
+  border-radius:14px;
   outline:none;
   font-size:15px;
-  font-family:'Inter',sans-serif;
+  transition:0.25s;
+  font-family:'Poppins',sans-serif;
+  background:#fafafa;
 }
 
 input:focus{
   border-color:#1a4a2e;
+  background:white;
+  box-shadow:0 0 0 4px rgba(26,74,46,0.08);
 }
 
 .row{
   display:flex;
+  gap:14px;
+}
+
+.option-group{
+  display:flex;
+  flex-direction:column;
   gap:12px;
 }
 
-.radio-group,
-.check-group{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.radio-opt,
-.check-opt{
-  border:1.5px solid #d1d5db;
-  border-radius:12px;
-  padding:14px;
+.option{
+  border:2px solid #e5e7eb;
+  border-radius:16px;
+  padding:16px;
   cursor:pointer;
-  transition:0.2s;
+  transition:0.25s;
+  position:relative;
+  font-weight:500;
+  color:#374151;
+  background:white;
   user-select:none;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color:transparent;
 }
 
-.radio-opt:hover,
-.check-opt:hover{
+.option:hover{
   border-color:#1a4a2e;
 }
 
-.radio-opt.sel,
-.check-opt.sel{
-  background:#edf7ef;
+.option.selected{
+  background:linear-gradient(
+    135deg,
+    #1a4a2e,
+    #2f7a4d
+  );
+  color:white;
   border-color:#1a4a2e;
+  transform:scale(1.01);
+  box-shadow:0 8px 20px rgba(26,74,46,0.2);
+}
+
+.option.selected::after{
+  content:'✓';
+  position:absolute;
+  right:16px;
+  top:50%;
+  transform:translateY(-50%);
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:white;
   color:#1a4a2e;
-  font-weight:600;
-}
-
-.radio-opt:active,
-.check-opt:active{
-  transform:scale(0.98);
-}
-
-.divider{
-  margin:25px 0;
-  border-top:1px solid #e5e7eb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
 }
 
 .submit-btn{
   width:100%;
   border:none;
-  background:#1a4a2e;
+  background:linear-gradient(
+    135deg,
+    #1a4a2e,
+    #2f7a4d
+  );
   color:white;
-  padding:16px;
-  border-radius:14px;
-  font-size:16px;
+  padding:18px;
+  border-radius:18px;
+  font-size:17px;
+  font-weight:700;
   cursor:pointer;
+  transition:0.25s;
   margin-top:10px;
-  font-weight:600;
 }
 
 .submit-btn:hover{
-  background:#12341f;
+  transform:translateY(-2px);
+  box-shadow:0 10px 25px rgba(26,74,46,0.25);
 }
 
-.footer-note{
-  margin-top:16px;
+.footer{
   text-align:center;
+  margin-top:18px;
   color:#6b7280;
   font-size:12px;
   line-height:1.7;
@@ -176,33 +221,62 @@ input:focus{
 
 .success{
   display:none;
-  background:white;
-  padding:30px;
-  border-radius:0 0 22px 22px;
+  padding:40px 28px;
   text-align:center;
+}
+
+.success-icon{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:#ecfdf3;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:42px;
+  margin-bottom:20px;
 }
 
 .success h2{
   color:#1a4a2e;
   margin-bottom:12px;
+  font-size:28px;
+}
+
+.success p{
+  color:#6b7280;
+  line-height:1.8;
 }
 
 .wa-btn{
+  margin-top:24px;
   background:#25D366;
-  color:white;
   border:none;
-  padding:15px 24px;
-  border-radius:12px;
-  margin-top:20px;
+  color:white;
+  padding:16px 24px;
+  border-radius:16px;
+  font-size:16px;
+  font-weight:700;
   cursor:pointer;
-  font-size:15px;
-  font-weight:600;
 }
 
-@media(max-width:500px){
+@media(max-width:600px){
+
+  body{
+    padding:12px;
+  }
 
   .row{
     flex-direction:column;
+  }
+
+  .header{
+    padding:32px 20px;
+  }
+
+  .form{
+    padding:22px;
   }
 
 }
@@ -212,28 +286,34 @@ input:focus{
 
 <body>
 
-<div class="outer">
+<div class="container">
+
+<div class="card">
 
 <div class="header">
+
+<div class="logo">🌿</div>
 
 <div class="brand">
 Neelgreeva Ayurveda
 </div>
 
 <div class="title">
-Diabetes Control Program 🌿
+Diabetes Control Program
 </div>
 
 <div class="subtitle">
-Control Diabetes Naturally with Ayurveda
+Get expert Ayurveda guidance for diabetes control naturally and safely.
 </div>
 
 </div>
 
-<div class="form-wrap" id="formWrap">
+<div class="form" id="formBox">
+
+<div class="section">
 
 <div class="section-title">
-Personal Details
+Personal Information
 </div>
 
 <div class="field">
@@ -241,23 +321,27 @@ Personal Details
 Full Name <span class="req">*</span>
 </label>
 
-<input type="text" id="f-name" placeholder="Enter full name">
+<input type="text" id="name" placeholder="Enter your full name">
 </div>
 
-<div class="field">
+<div class="row">
+
+<div class="field" style="flex:1">
 <label>
 Mobile Number <span class="req">*</span>
 </label>
 
-<input type="tel" id="f-mobile" placeholder="+91 9876543210">
+<input type="tel" id="mobile" placeholder="+91 9876543210">
 </div>
 
-<div class="field">
+<div class="field" style="flex:1">
 <label>
 WhatsApp Number <span class="req">*</span>
 </label>
 
-<input type="tel" id="f-whatsapp" placeholder="+91 9876543210">
+<input type="tel" id="whatsapp" placeholder="+91 9876543210">
+</div>
+
 </div>
 
 <div class="field">
@@ -265,134 +349,69 @@ WhatsApp Number <span class="req">*</span>
 City / State <span class="req">*</span>
 </label>
 
-<input type="text" id="f-city" placeholder="Ahmedabad, Gujarat">
+<input type="text" id="city" placeholder="Ahmedabad, Gujarat">
 </div>
 
-<div class="divider"></div>
+</div>
+
+<div class="section">
 
 <div class="section-title">
-Health Profile
+Health Details
 </div>
 
 <div class="field">
-<label>Age</label>
-
-<input type="number" id="f-age" placeholder="45">
-</div>
-
-<div class="field">
-
 <label>Gender</label>
 
-<div class="radio-group" id="g-gender">
+<div class="option-group radio-group" id="gender">
 
-<div class="radio-opt">Male</div>
-<div class="radio-opt">Female</div>
-<div class="radio-opt">Other</div>
-
-</div>
-
-</div>
-
-<div class="field">
-
-<label>
-Since how many years do you have diabetes?
-</label>
-
-<div class="radio-group" id="g-years">
-
-<div class="radio-opt">Less than 1 year</div>
-<div class="radio-opt">1–3 years</div>
-<div class="radio-opt">3–5 years</div>
-<div class="radio-opt">More than 5 years</div>
+<div class="option">Male</div>
+<div class="option">Female</div>
+<div class="option">Other</div>
 
 </div>
 
 </div>
 
 <div class="field">
+<label>How long do you have diabetes?</label>
 
-<label>
-Current Sugar Level
-</label>
+<div class="option-group radio-group" id="years">
 
-<div class="row">
-
-<div style="flex:1">
-
-<label style="font-size:12px;">
-Fasting Sugar
-</label>
-
-<input type="number" id="f-fasting" placeholder="160">
-
-</div>
-
-<div style="flex:1">
-
-<label style="font-size:12px;">
-PP Sugar
-</label>
-
-<input type="number" id="f-pp" placeholder="220">
-
-</div>
+<div class="option">Less than 1 year</div>
+<div class="option">1–3 years</div>
+<div class="option">3–5 years</div>
+<div class="option">More than 5 years</div>
 
 </div>
 
 </div>
 
 <div class="field">
+<label>Problems Facing</label>
 
-<label>
-Are you taking medicines currently?
-</label>
+<div class="option-group check-group" id="problems">
 
-<div class="radio-group" id="g-meds">
-
-<div class="radio-opt">Yes</div>
-<div class="radio-opt">No</div>
-
-</div>
-
-</div>
-
-<div class="divider"></div>
-
-<div class="section-title">
-Symptoms & Contact
-</div>
-
-<div class="field">
-
-<label>
-Problems Facing
-</label>
-
-<div class="check-group" id="g-problems">
-
-<div class="check-opt">High Sugar</div>
-<div class="check-opt">Weakness</div>
-<div class="check-opt">Frequent Urination</div>
-<div class="check-opt">Weight Loss</div>
-<div class="check-opt">Fatigue</div>
-<div class="check-opt">Stress</div>
+<div class="option">High Sugar</div>
+<div class="option">Weakness</div>
+<div class="option">Frequent Urination</div>
+<div class="option">Weight Loss</div>
+<div class="option">Fatigue</div>
+<div class="option">Stress</div>
 
 </div>
 
 </div>
 
 <div class="field">
+<label>Preferred Contact</label>
 
-<label>
-Preferred Contact
-</label>
+<div class="option-group radio-group" id="contact">
 
-<div class="radio-group" id="g-contact">
+<div class="option">WhatsApp</div>
+<div class="option">Call</div>
 
-<div class="radio-opt">WhatsApp</div>
-<div class="radio-opt">Call</div>
+</div>
 
 </div>
 
@@ -402,15 +421,19 @@ Preferred Contact
 Get FREE Consultation
 </button>
 
-<p class="footer-note">
-🔒 Your information is completely confidential.
-</p>
+<div class="footer">
+🔒 Your information is secure & confidential.
+</div>
 
 </div>
 
 <div class="success" id="successBox">
 
-<h2 id="successTitle">
+<div class="success-icon">
+✅
+</div>
+
+<h2>
 Thank You 🌿
 </h2>
 
@@ -426,90 +449,118 @@ Chat on WhatsApp
 
 </div>
 
+</div>
+
 <script>
 
-var WA_PHONE = '8511607177';
+/* ===========================
+CHANGE THESE
+=========================== */
+
+var WA_PHONE = "8511607177";
 
 var SHEET_API =
-'https://docs.google.com/spreadsheets/d/1NVY4hlK4pTPlnq4Eh8S3AAZRzeqBgt34UNRgYGsNzwg/edit?usp=sharing
+"https://docs.google.com/spreadsheets/d/1NVY4hlK4pTPlnq4Eh8S3AAZRzeqBgt34UNRgYGsNzwg/edit?usp=sharing
 
-this is google sheet link and get full code ';
+this is google sheet link and get full code ";
 
-/* RADIO BUTTON FIX */
+/* ===========================
+RADIO SELECT
+=========================== */
 
-document.querySelectorAll('.radio-opt').forEach(function(el){
+document.querySelectorAll('.radio-group .option')
+.forEach(function(el){
 
-  el.addEventListener('click', function(){
+  el.addEventListener('click',function(){
 
-    var group = el.parentElement.id;
+    var parent = el.parentElement;
 
-    document.querySelectorAll(
-      '#' + group + ' .radio-opt'
-    ).forEach(function(item){
+    parent.querySelectorAll('.option')
+    .forEach(function(item){
 
-      item.classList.remove('sel');
+      item.classList.remove('selected');
 
     });
 
-    el.classList.add('sel');
+    el.classList.add('selected');
 
   });
 
 });
 
-/* CHECKBOX FIX */
+/* ===========================
+CHECKBOX SELECT
+=========================== */
 
-document.querySelectorAll('.check-opt').forEach(function(el){
+document.querySelectorAll('.check-group .option')
+.forEach(function(el){
 
-  el.addEventListener('click', function(){
+  el.addEventListener('click',function(){
 
-    el.classList.toggle('sel');
+    el.classList.toggle('selected');
 
   });
 
 });
 
-function getRadio(groupId){
+/* ===========================
+GET RADIO
+=========================== */
 
-  var sel = document.querySelector(
-    '#' + groupId + ' .radio-opt.sel'
+function getRadio(id){
+
+  var selected =
+  document.querySelector(
+    '#' + id + ' .option.selected'
   );
 
-  return sel ? sel.textContent.trim() : '';
+  return selected
+  ? selected.innerText.trim()
+  : '';
+
 }
 
-function getChecks(groupId){
+/* ===========================
+GET CHECKBOX
+=========================== */
+
+function getChecks(id){
 
   return Array.from(
 
     document.querySelectorAll(
-      '#' + groupId + ' .check-opt.sel'
+      '#' + id + ' .option.selected'
     )
 
-  ).map(function(e){
+  ).map(function(item){
 
-    return e.textContent.trim();
+    return item.innerText.trim();
 
   }).join(', ');
+
 }
+
+/* ===========================
+SUBMIT FORM
+=========================== */
 
 function submitForm(){
 
   var name =
-    document.getElementById('f-name')
-    .value.trim();
+  document.getElementById('name')
+  .value.trim();
 
   var mobile =
-    document.getElementById('f-mobile')
-    .value.trim();
+  document.getElementById('mobile')
+  .value.trim();
 
   var whatsapp =
-    document.getElementById('f-whatsapp')
-    .value.trim();
+  document.getElementById('whatsapp')
+  .value.trim();
 
   var city =
-    document.getElementById('f-city')
-    .value.trim();
+  document.getElementById('city')
+  .value.trim();
 
   if(
     !name ||
@@ -523,34 +574,18 @@ function submitForm(){
     );
 
     return;
+
   }
 
-  var age =
-    document.getElementById('f-age')
-    .value.trim();
+  var gender = getRadio('gender');
 
-  var fasting =
-    document.getElementById('f-fasting')
-    .value.trim();
+  var years = getRadio('years');
 
-  var pp =
-    document.getElementById('f-pp')
-    .value.trim();
+  var problems = getChecks('problems');
 
-  var gender =
-    getRadio('g-gender');
+  var contact = getRadio('contact');
 
-  var years =
-    getRadio('g-years');
-
-  var meds =
-    getRadio('g-meds');
-
-  var problems =
-    getChecks('g-problems');
-
-  var contact =
-    getRadio('g-contact');
+  /* SAVE TO SHEET */
 
   fetch(SHEET_API,{
 
@@ -566,12 +601,8 @@ function submitForm(){
       mobile:mobile,
       whatsapp:whatsapp,
       city:city,
-      age:age,
       gender:gender,
       years:years,
-      fasting:fasting,
-      pp:pp,
-      meds:meds,
       problems:problems,
       contact:contact
 
@@ -579,69 +610,35 @@ function submitForm(){
 
   });
 
-  var lines = [];
+  /* WHATSAPP */
 
-  lines.push('🌿 Neelgreeva Ayurveda Form');
-  lines.push('');
-  lines.push('👤 Name: ' + name);
-  lines.push('📱 Mobile: ' + mobile);
-  lines.push('💬 WhatsApp: ' + whatsapp);
-  lines.push('🏙️ City: ' + city);
+  var msg = encodeURIComponent(
 
-  if(age)
-  lines.push('🎂 Age: ' + age);
+`🌿 Neelgreeva Ayurveda Form
 
-  if(gender)
-  lines.push('⚧ Gender: ' + gender);
+👤 Name: ${name}
+📱 Mobile: ${mobile}
+💬 WhatsApp: ${whatsapp}
+🏙️ City: ${city}
+⚧ Gender: ${gender}
+📅 Diabetes Since: ${years}
+⚠ Problems: ${problems}
+📞 Preferred Contact: ${contact}
 
-  if(years)
-  lines.push('📅 Diabetes Since: ' + years);
+Please guide me for diabetes control through Ayurveda 🙏`
 
-  if(fasting)
-  lines.push('🩸 Fasting Sugar: ' + fasting);
-
-  if(pp)
-  lines.push('🩸 PP Sugar: ' + pp);
-
-  if(meds)
-  lines.push('💊 Medicines: ' + meds);
-
-  if(problems)
-  lines.push('⚠ Problems: ' + problems);
-
-  if(contact)
-  lines.push('📞 Preferred Contact: ' + contact);
-
-  lines.push('');
-  lines.push(
-    'Please guide me for diabetes control through Ayurveda 🙏'
   );
 
-  var msg =
-    encodeURIComponent(
-      lines.join('\n')
-    );
-
   var waUrl =
-    'https://wa.me/' +
-    WA_PHONE +
-    '?text=' +
-    msg;
+  `https://wa.me/${WA_PHONE}?text=${msg}`;
 
   document.getElementById(
-    'formWrap'
+    'formBox'
   ).style.display = 'none';
 
   document.getElementById(
     'successBox'
   ).style.display = 'block';
-
-  document.getElementById(
-    'successTitle'
-  ).innerHTML =
-    'Thank You, ' +
-    name +
-    ' 🌿';
 
   document.getElementById(
     'waBtn'
@@ -653,15 +650,6 @@ function submitForm(){
     );
 
   };
-
-  setTimeout(function(){
-
-    window.open(
-      waUrl,
-      '_blank'
-    );
-
-  },1000);
 
 }
 
